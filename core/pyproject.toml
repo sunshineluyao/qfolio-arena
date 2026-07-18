@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qfolio-core"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy", "scipy", "pandas", "pydantic>=2", "cvxpy",
+  "pennylane>=0.36", "dwave-neal", "dimod",
+  "web3", "eth-utils", "typer", "pyarrow"
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "hypothesis"]
+
+[project.scripts]
+qfolio = "qfolio.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
